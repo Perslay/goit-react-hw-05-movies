@@ -1,6 +1,18 @@
-import { Link } from 'react-router-dom';
+import {
+  Link,
+  // useNavigate
+} from 'react-router-dom';
 
 export const Movies = () => {
+  // const navigate = useNavigate();
+
+  // const handleSubmit = async values => {
+  //   const response = await...(values);
+  //   if (response.success) {
+  //     navigate('/');
+  //   }
+  // }
+
   return (
     <div>
       <form>
