@@ -8,11 +8,50 @@ import { Reviews } from './Reviews';
 import { NotFound } from '../pages/NotFound';
 
 export const App = () => {
+  const handleFetching = async api => {
+    const options = {
+      method: 'GET',
+      headers: {
+        accept: 'application/json',
+        Authorization:
+          'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJkYTQyNWIwYjU2OGVjY2JlZDg4ODRmYWNjNDY5ZjZlMSIsInN1YiI6IjY2M2EyMjcyNWE0NjkwMDEyNTNmNDUwMyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.uC7HJkDwjXG2-2avPv7dsq3GhNDhIi4XR4zstIkI97M',
+      },
+    };
+
+    // fetch(api, options)
+    //   .then(response => response.json())
+    //   .then(response => console.log(response.results))
+    //   .then(response => {
+    //     return response.results;
+    //   })
+    //   .catch(err => console.error(err));
+
+    try {
+      const response = await fetch(api, options);
+      const data = await response.json();
+      console.log(data.results);
+      return data.results;
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  // useEffect =
+  //   (() => {
+  //     handleFetching(
+  //       'https://api.themoviedb.org/3/trending/movie/day?language=en-US'
+  //     );
+  //   },
+  //   []);
+
   return (
     <Routes>
       <Route path="/" element={<SharedLayout />}>
-        <Route index element={<Home />} />
-        <Route path="/movies" element={<Movies />}>
+        <Route index element={<Home handleFetching={handleFetching} />} />
+        <Route
+          path="/movies"
+          element={<Movies handleFetching={handleFetching} />}
+        >
           <Route path=":movieId" element={<MovieDetails />}>
             <Route path="cast" element={<Cast />} />
             <Route path="reviews" element={<Reviews />} />
@@ -23,7 +62,3 @@ export const App = () => {
     </Routes>
   );
 };
-
-// You must use the TMDB logo to identify Your use of TMDB, the TMDB APIs, or TMDB Content. Any use of any TMDB logos in Your Application must be less prominent than the logos or marks that primarily describe or identify Your Application and must make it clear that use of any TMDB logos does not imply any endorsement, certification, or other approval by TMDB. In addition, You must place the following notice prominently in or on Your Application:
-
-// "This [website, program, service, application, product] uses TMDB and the TMDB APIs but is not endorsed, certified, or otherwise approved by TMDB."
