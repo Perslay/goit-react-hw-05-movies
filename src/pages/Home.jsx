@@ -30,9 +30,8 @@ export const Home = ({ handleFetching }) => {
     handleFetching(
       'https://api.themoviedb.org/3/trending/movie/day?language=en-US'
     )
-      .then(fetchedResults => {
-        setResults(fetchedResults);
-      })
+      .then(data => data.results)
+      .then(data => setResults(data))
       .catch(error => {
         console.log(error);
       });
@@ -44,7 +43,7 @@ export const Home = ({ handleFetching }) => {
       <ul>
         {results.map(result => (
           <li key={result.id}>
-            <Link to={`/movie/${result.id}`}>{result.title}</Link>
+            <Link to={`/movies/${result.id}`}>{result.title}</Link>
           </li>
         ))}
       </ul>

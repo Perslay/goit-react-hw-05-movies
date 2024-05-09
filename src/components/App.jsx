@@ -29,8 +29,8 @@ export const App = () => {
     try {
       const response = await fetch(api, options);
       const data = await response.json();
-      console.log(data.results);
-      return data.results;
+      console.log(data);
+      return data;
     } catch (error) {
       console.log(error);
     }
@@ -51,12 +51,15 @@ export const App = () => {
         <Route
           path="/movies"
           element={<Movies handleFetching={handleFetching} />}
+        />
+        <Route
+          path="/movies/:movieId"
+          element={<MovieDetails handleFetching={handleFetching} />}
         >
-          <Route path=":movieId" element={<MovieDetails />}>
-            <Route path="cast" element={<Cast />} />
-            <Route path="reviews" element={<Reviews />} />
-          </Route>
+          <Route path="cast" element={<Cast />} />
+          <Route path="reviews" element={<Reviews />} />
         </Route>
+
         <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>

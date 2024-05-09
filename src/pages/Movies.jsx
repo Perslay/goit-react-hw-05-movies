@@ -2,20 +2,9 @@ import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 
 export const Movies = ({ handleFetching }) => {
   const [searchParams, setSearchParams] = useSearchParams();
+  // const id = searchParams.get('id');
 
   const navigate = useNavigate();
-
-  // const options = {
-  //   method: 'GET',
-  //   headers: {
-  //     accept: 'application/json',
-  //     Authorization:
-  //       'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJkYTQyNWIwYjU2OGVjY2JlZDg4ODRmYWNjNDY5ZjZlMSIsInN1YiI6IjY2M2EyMjcyNWE0NjkwMDEyNTNmNDUwMyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.uC7HJkDwjXG2-2avPv7dsq3GhNDhIi4XR4zstIkI97M',
-  //   },
-  // };
-
-  // const api =
-  //   'https://api.themoviedb.org/3/search/movie?include_adult=false&language=en-US&page=1';
 
   const handleSubmit = async event => {
     event.preventDefault();
@@ -26,7 +15,13 @@ export const Movies = ({ handleFetching }) => {
 
     handleFetching(
       'https://api.themoviedb.org/3/search/movie?include_adult=false&language=en-US&page=1'
-    );
+    )
+      .then(results => {
+        return results.data;
+      })
+      .catch(error => {
+        console.log(error);
+      });
 
     // try {
     //   const response = await fetch(api, options);
@@ -46,7 +41,7 @@ export const Movies = ({ handleFetching }) => {
         <input type="text" name="search" />
         <button type="submit">Search</button>
       </form>
-      <ul>
+      {/* <ul>
         <li>
           <Link to="movie1">Movie 1</Link>
         </li>
@@ -56,7 +51,8 @@ export const Movies = ({ handleFetching }) => {
         <li>
           <Link to="movie3">Movie 3</Link>
         </li>
-      </ul>
+      </ul> */}
+      {/* <p>Id: {id}</p> */}
     </div>
   );
 };
