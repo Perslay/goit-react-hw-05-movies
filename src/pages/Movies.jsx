@@ -1,6 +1,9 @@
+import { useState } from 'react';
 import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 
 export const Movies = ({ handleFetching }) => {
+  const [searchResults, setSearchResults] = useState([]);
+  const [submitted, setSubmitted] = useState(false);
   const [searchParams, setSearchParams] = useSearchParams();
   // const id = searchParams.get('id');
 
@@ -11,26 +14,22 @@ export const Movies = ({ handleFetching }) => {
 
     const form = event.currentTarget;
     const search = form.elements.search.value;
-    setSearchParams({ name: search });
+    // setSearchParams({ name: search });
 
     handleFetching(
-      'https://api.themoviedb.org/3/search/movie?include_adult=false&language=en-US&page=1'
+      `https://api.themoviedb.org/3/search/movie?query=${search}&include_adult=false&language=en-US&page=1`
     )
-      .then(results => {
-        return results.data;
+      .then(data => {
+        setSearchResults(data.results);
+        console.log(data.results);
+      })
+      .then(() => {
+        setSubmitted(true);
+        navigate(`/movies`, { replace: true });
       })
       .catch(error => {
         console.log(error);
       });
-
-    // try {
-    //   const response = await fetch(api, options);
-    //   const jsonResponse = await response.json();
-    //   console.log(jsonResponse);
-    //   navigate('/movies', { replace: true });
-    // } catch (error) {
-    //   console.log(error);
-    // }
 
     form.reset();
   };
@@ -41,18 +40,18 @@ export const Movies = ({ handleFetching }) => {
         <input type="text" name="search" />
         <button type="submit">Search</button>
       </form>
-      {/* <ul>
-        <li>
-          <Link to="movie1">Movie 1</Link>
-        </li>
-        <li>
-          <Link to="movie2">Movie 2</Link>
-        </li>
-        <li>
-          <Link to="movie3">Movie 3</Link>
-        </li>
-      </ul> */}
-      {/* <p>Id: {id}</p> */}
+      {submitted && searchResults && (
+        <ul>
+          {searchResults.map(result => (
+            <li key={result.id}>
+              <Link to={`/movies/${result.id}`}>{result.title}</Link>
+            </li>
+          ))}
+        </ul>
+      )}
+      {/* {!isLoading &&
+        (!searchResults || searchResults.length === 0) &&
+        searchQuery !== '' && <p>No results found for "{searchQuery}"</p>} */}
     </div>
   );
 };

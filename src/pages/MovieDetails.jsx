@@ -22,7 +22,7 @@ export const MovieDetails = ({ handleFetching }) => {
     <div>
       {results && (
         <div>
-          <img src={results.poster_path} alt="img details" />
+          <img src={results.poster_path} alt={results.title} />
           <h2>{results.title}</h2>
           <p>User Score: {results.vote_average}</p>
           <h3>Overview</h3>
