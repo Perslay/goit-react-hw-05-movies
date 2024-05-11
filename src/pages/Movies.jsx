@@ -32,7 +32,7 @@ export const Movies = ({ handleFetching }) => {
   };
 
   return (
-    <div>
+    <main>
       <form onSubmit={handleSubmit}>
         <input type="text" name="search" />
         <button type="submit">Search</button>
@@ -49,6 +49,6 @@ export const Movies = ({ handleFetching }) => {
         ) : (
           <p>There are not matching results.</p>
         ))}
-    </div>
+    </main>
   );
 };

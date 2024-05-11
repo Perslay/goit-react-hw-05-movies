@@ -6,8 +6,9 @@ import logo from '../img/logo.svg';
 export const SharedLayout = () => {
   return (
     <div>
-      <header>
-        <nav>
+      <header className={css.header}>
+        <h1 className={css.firstHeading}>Movielib</h1>
+        <nav className={css.navigation}>
           <NLink to="/" end>
             Home
           </NLink>
@@ -15,16 +16,22 @@ export const SharedLayout = () => {
         </nav>
       </header>
       <Outlet />
-      <footer>
-        <a href="https://developer.themoviedb.org/docs/getting-started">
+      <footer className={css.footer}>
+        <a
+          // className={css.logoLink}
+          href="https://developer.themoviedb.org/docs/getting-started"
+        >
           <img
+            className={css.logoImage}
             src={logo}
             alt="TMDB logo"
             width="100"
             title="The movie db - movie database"
           />
         </a>
-        <p>
+        <p
+        // className={css.infoParagraph}
+        >
           This website uses TMDB and the TMDB APIs but is not endorsed,
           certified, or otherwise approved by TMDB.
         </p>

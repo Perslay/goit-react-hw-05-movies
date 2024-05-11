@@ -27,7 +27,7 @@ export const MovieDetails = ({ handleFetching }) => {
   };
 
   return (
-    <div>
+    <main>
       <button onClick={handleClick} type="button">
         Go back
       </button>
@@ -68,6 +68,6 @@ export const MovieDetails = ({ handleFetching }) => {
         </ul>
       </div>
       <Outlet />
-    </div>
+    </main>
   );
 };
