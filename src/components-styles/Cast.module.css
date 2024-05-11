@@ -1,0 +1,7 @@
+.avatarBg {
+  background-color: lightgray;
+  display: flex;
+  height: 300px;
+  justify-content: center;
+  width: 200px;
+}

@@ -18,31 +18,14 @@ export const App = () => {
       },
     };
 
-    // fetch(api, options)
-    //   .then(response => response.json())
-    //   .then(response => console.log(response.results))
-    //   .then(response => {
-    //     return response.results;
-    //   })
-    //   .catch(err => console.error(err));
-
     try {
       const response = await fetch(api, options);
       const data = await response.json();
-      console.log(data);
       return data;
     } catch (error) {
       console.log(error);
     }
   };
-
-  // useEffect =
-  //   (() => {
-  //     handleFetching(
-  //       'https://api.themoviedb.org/3/trending/movie/day?language=en-US'
-  //     );
-  //   },
-  //   []);
 
   return (
     <Routes>

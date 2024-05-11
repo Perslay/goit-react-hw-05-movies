@@ -1,3 +1,11 @@
 /* .poster {
   width: 200px;
 } */
+
+.movieBg {
+  background-color: lightgray;
+  display: flex;
+  height: 513px;
+  justify-content: center;
+  width: 342px;
+}
