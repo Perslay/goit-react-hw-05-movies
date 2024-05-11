@@ -1,11 +1,9 @@
 import { useState } from 'react';
-import { Link, useNavigate, useSearchParams } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 export const Movies = ({ handleFetching }) => {
   const [searchResults, setSearchResults] = useState([]);
   const [submitted, setSubmitted] = useState(false);
-  const [searchParams, setSearchParams] = useSearchParams();
-  // const id = searchParams.get('id');
 
   const navigate = useNavigate();
 
@@ -14,7 +12,6 @@ export const Movies = ({ handleFetching }) => {
 
     const form = event.currentTarget;
     const search = form.elements.search.value;
-    // setSearchParams({ name: search });
 
     handleFetching(
       `https://api.themoviedb.org/3/search/movie?query=${search}&include_adult=false&language=en-US&page=1`
@@ -40,18 +37,18 @@ export const Movies = ({ handleFetching }) => {
         <input type="text" name="search" />
         <button type="submit">Search</button>
       </form>
-      {submitted && searchResults && (
-        <ul>
-          {searchResults.map(result => (
-            <li key={result.id}>
-              <Link to={`/movies/${result.id}`}>{result.title}</Link>
-            </li>
-          ))}
-        </ul>
-      )}
-      {/* {!isLoading &&
-        (!searchResults || searchResults.length === 0) &&
-        searchQuery !== '' && <p>No results found for "{searchQuery}"</p>} */}
+      {submitted &&
+        (searchResults.length > 0 ? (
+          <ul>
+            {searchResults.map(result => (
+              <li key={result.id}>
+                <Link to={`/movies/${result.id}`}>{result.title}</Link>
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <p>There are not matching results.</p>
+        ))}
     </div>
   );
 };

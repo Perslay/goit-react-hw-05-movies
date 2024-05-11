@@ -13,9 +13,9 @@ export const MovieDetails = ({ handleFetching }) => {
     handleFetching(
       `https://api.themoviedb.org/3/movie/${movieId}?language=en-US`
     )
-      .then(results => {
-        console.log(results);
-        setResults(results);
+      .then(data => {
+        console.log(data);
+        setResults(data);
       })
       .catch(error => {
         console.log(error);

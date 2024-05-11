@@ -20,7 +20,7 @@ export const Cast = ({ handleFetching }) => {
 
   return (
     <div>
-      {results && results.length > 0 ? (
+      {results.length > 0 ? (
         <ul>
           {results.map(result => (
             <li key={result.id}>
@@ -39,7 +39,7 @@ export const Cast = ({ handleFetching }) => {
           ))}
         </ul>
       ) : (
-        <p>No actors</p>
+        <p>Cast information unavailable.</p>
       )}
     </div>
   );

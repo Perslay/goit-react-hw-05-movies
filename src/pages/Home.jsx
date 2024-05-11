@@ -4,27 +4,6 @@ import { Link } from 'react-router-dom';
 
 export const Home = ({ handleFetching }) => {
   const [results, setResults] = useState([]);
-  // fetch(
-  //   'https://api.themoviedb.org/3/trending/movie/day?language=en-US',
-  //   options
-  // )
-  //   .then(response => response.json())
-  //   .then(response => console.log(response.results))
-  //   .catch(err => console.error(err));
-
-  // useEffect =
-  //   (() => {
-  //     handleFetching(
-  //       'https://api.themoviedb.org/3/trending/movie/day?language=en-US'
-  //     );
-  //   },
-  //   []);
-
-  // ----------
-
-  // handleFetching(
-  //   'https://api.themoviedb.org/3/trending/movie/day?language=en-US'
-  // );
 
   useEffect(() => {
     handleFetching(
@@ -35,7 +14,7 @@ export const Home = ({ handleFetching }) => {
       .catch(error => {
         console.log(error);
       });
-  }, []);
+  }, [handleFetching]);
 
   return (
     <main>
