@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link, Outlet, useParams } from 'react-router-dom';
+import css from '../pages-styles/MovieDetails.module.css';
 
 export const MovieDetails = ({ handleFetching }) => {
   const [results, setResults] = useState([]);
@@ -22,7 +23,11 @@ export const MovieDetails = ({ handleFetching }) => {
     <div>
       {results && (
         <div>
-          <img src={results.poster_path} alt={results.title} />
+          <img
+            className={css.poster}
+            src={`https://image.tmdb.org/t/p/original/${results.poster_path}`}
+            alt={results.title}
+          />
           <h2>{results.title}</h2>
           <p>User Score: {results.vote_average}</p>
           <h3>Overview</h3>

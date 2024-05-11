@@ -56,8 +56,14 @@ export const App = () => {
           path="/movies/:movieId"
           element={<MovieDetails handleFetching={handleFetching} />}
         >
-          <Route path="cast" element={<Cast />} />
-          <Route path="reviews" element={<Reviews />} />
+          <Route
+            path="cast"
+            element={<Cast handleFetching={handleFetching} />}
+          />
+          <Route
+            path="reviews"
+            element={<Reviews handleFetching={handleFetching} />}
+          />
         </Route>
 
         <Route path="*" element={<NotFound />} />
