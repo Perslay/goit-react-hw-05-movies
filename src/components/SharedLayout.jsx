@@ -1,5 +1,6 @@
 import { Outlet } from 'react-router-dom';
 import { NLink } from './App.styled';
+import css from '../components-styles/SharedLayout.module.css';
 import logo from '../img/logo.svg';
 
 export const SharedLayout = () => {

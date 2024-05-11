@@ -1,4 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
+import css from '../components-styles/App.module.css';
+
 import { SharedLayout } from './SharedLayout';
 import { Home } from '../pages/Home';
 import { Movies } from '../pages/Movies';
@@ -48,7 +50,6 @@ export const App = () => {
             element={<Reviews handleFetching={handleFetching} />}
           />
         </Route>
-
         <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>
