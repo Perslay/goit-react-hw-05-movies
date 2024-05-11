@@ -9,7 +9,7 @@ export const Reviews = ({ handleFetching }) => {
     handleFetching(
       `https://api.themoviedb.org/3/movie/${movieId}/reviews?language=en-US&page=1`
     )
-      .then(data => data.results)
+      .then(data => data.results.slice(0, 5))
       .then(data => {
         console.log(data);
         setResults(data);
@@ -24,7 +24,10 @@ export const Reviews = ({ handleFetching }) => {
       {results && results.length > 0 ? (
         <ul>
           {results.map(result => (
-            <li>{result.author}</li>
+            <li key={result.id}>
+              <p>{result.author}</p>
+              <p>{result.content}</p>
+            </li>
           ))}
         </ul>
       ) : (

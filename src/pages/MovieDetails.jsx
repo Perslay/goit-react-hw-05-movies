@@ -25,7 +25,7 @@ export const MovieDetails = ({ handleFetching }) => {
         <div>
           <img
             className={css.poster}
-            src={`https://image.tmdb.org/t/p/original/${results.poster_path}`}
+            src={`https://image.tmdb.org/t/p/w342${results.poster_path}`}
             alt={results.title}
           />
           <h2>{results.title}</h2>
