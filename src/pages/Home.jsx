@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
@@ -28,4 +29,8 @@ export const Home = ({ handleFetching }) => {
       </ul>
     </main>
   );
+};
+
+Home.propTypes = {
+  handleFetching: PropTypes.func.isRequired,
 };

@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
@@ -51,4 +52,8 @@ export const Movies = ({ handleFetching }) => {
         ))}
     </main>
   );
+};
+
+Movies.propTypes = {
+  handleFetching: PropTypes.func.isRequired,
 };

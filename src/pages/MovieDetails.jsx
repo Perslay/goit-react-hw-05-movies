@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { useState, useEffect } from 'react';
 import { Link, Outlet, useParams, useNavigate } from 'react-router-dom';
 import css from '../pages-styles/MovieDetails.module.css';
@@ -70,4 +71,8 @@ export const MovieDetails = ({ handleFetching }) => {
       <Outlet />
     </main>
   );
+};
+
+MovieDetails.propTypes = {
+  handleFetching: PropTypes.func.isRequired,
 };

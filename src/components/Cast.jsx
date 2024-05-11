@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import css from '../components-styles/Cast.module.css';
@@ -43,4 +44,8 @@ export const Cast = ({ handleFetching }) => {
       )}
     </div>
   );
+};
+
+Cast.propTypes = {
+  handleFetching: PropTypes.func.isRequired,
 };
