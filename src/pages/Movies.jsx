@@ -7,20 +7,23 @@ export const Movies = ({ handleFetching }) => {
   const [searchResults, setSearchResults] = useState([]);
   const [submitted, setSubmitted] = useState(false);
   const [pageNum, setPageNum] = useState(1);
+  const [error, setError] = useState(false);
 
   const navigate = useNavigate();
 
   const showResults = async (search, pageNum) => {
     try {
       const data = await handleFetching(
-        `https://api.themoviedb.org/3/search/movie?query=${search}&include_adult=false&language=en-US&page=${pageNum}`
+        `https://api.themoviedb.org/3/seartch/movie?query=${search}&include_adult=false&language=en-US&page=${pageNum}`
       );
       setSearchResults(data.results);
       setSubmitted(true);
       navigate(`/movies`, { replace: true });
-      console.log(pageNum);
+      if (!data.success) {
+        setError(true);
+      }
     } catch (error) {
-      console.log(error);
+      setError(true);
     }
   };
 
@@ -41,13 +44,13 @@ export const Movies = ({ handleFetching }) => {
 
   const handleSubmit = async event => {
     event.preventDefault();
+    // setError(false);
 
     const form = event.currentTarget;
     const search = form.elements.search.value;
 
     setSearch(search);
     setPageNum(1);
-
     await showResults(search, 1);
 
     form.reset();
@@ -59,7 +62,9 @@ export const Movies = ({ handleFetching }) => {
         <input type="text" name="search" />
         <button type="submit">Search</button>
       </form>
+      {error && <p>Error: Failed to get information from the server.</p>}
       {submitted &&
+        searchResults &&
         (searchResults.length > 0 ? (
           <div>
             <ul>
@@ -77,7 +82,7 @@ export const Movies = ({ handleFetching }) => {
             </button>
           </div>
         ) : (
-          <p>There are not matching results.</p>
+          <p>There are no matching results.</p>
         ))}
     </main>
   );
