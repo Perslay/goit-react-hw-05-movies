@@ -10,28 +10,33 @@ export const Movies = ({ handleFetching }) => {
 
   const navigate = useNavigate();
 
-  const showResults = async search => {
+  const showResults = async (search, pageNum) => {
     try {
       const data = await handleFetching(
         `https://api.themoviedb.org/3/search/movie?query=${search}&include_adult=false&language=en-US&page=${pageNum}`
       );
       setSearchResults(data.results);
-      console.log(data.results);
       setSubmitted(true);
       navigate(`/movies`, { replace: true });
+      console.log(pageNum);
     } catch (error) {
       console.log(error);
     }
   };
 
   const handleBack = () => {
-    setPageNum(prevPageNum => Math.max(prevPageNum - 1, 1)); // Ensure pageNum doesn't go below 1
-    showResults(search);
+    if (pageNum === 1) {
+      return;
+    }
+    const updatedPageNum = pageNum - 1;
+    setPageNum(updatedPageNum);
+    showResults(search, updatedPageNum);
   };
 
   const handleNext = () => {
-    setPageNum(prevPageNum => prevPageNum + 1);
-    showResults(search);
+    const updatedPageNum = pageNum + 1;
+    setPageNum(updatedPageNum);
+    showResults(search, updatedPageNum);
   };
 
   const handleSubmit = async event => {
@@ -41,10 +46,9 @@ export const Movies = ({ handleFetching }) => {
     const search = form.elements.search.value;
 
     setSearch(search);
-
     setPageNum(1);
 
-    await showResults(search);
+    await showResults(search, 1);
 
     form.reset();
   };
