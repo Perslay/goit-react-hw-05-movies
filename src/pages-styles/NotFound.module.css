@@ -1,0 +1,17 @@
+.main {
+  background-color: #222;
+  margin: 0 auto;
+  max-width: 280px;
+  padding: 2rem 0.5rem;
+  text-align: center;
+}
+
+.heading {
+  font-size: 30px;
+}
+
+.paragraph {
+}
+
+@media screen and (min-width: 758px) {
+}
