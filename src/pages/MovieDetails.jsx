@@ -6,6 +6,8 @@ import movie from '../img/movie.svg';
 
 export const MovieDetails = ({ handleFetching }) => {
   const [results, setResults] = useState([]);
+  const [error, setError] = useState(false);
+
   const { movieId } = useParams();
 
   const navigate = useNavigate();
@@ -14,13 +16,8 @@ export const MovieDetails = ({ handleFetching }) => {
     handleFetching(
       `https://api.themoviedb.org/3/movie/${movieId}?language=en-US`
     )
-      .then(data => {
-        console.log(data);
-        setResults(data);
-      })
-      .catch(error => {
-        console.log(error);
-      });
+      .then(data => setResults(data))
+      .catch(() => setError(true));
   }, [handleFetching, movieId]);
 
   const handleClick = () => {
@@ -32,6 +29,9 @@ export const MovieDetails = ({ handleFetching }) => {
       <button onClick={handleClick} type="button">
         Go back
       </button>
+      {(error || !results) && (
+        <p>Error: Failed to get information from the server.</p>
+      )}
       {results && (
         <div>
           {results.poster_path ? (

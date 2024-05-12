@@ -6,6 +6,8 @@ import user from '../img/user.svg';
 
 export const Cast = ({ handleFetching }) => {
   const [results, setResults] = useState([]);
+  const [error, setError] = useState(false);
+
   const { movieId } = useParams();
 
   useEffect(() => {
@@ -13,14 +15,15 @@ export const Cast = ({ handleFetching }) => {
       `https://api.themoviedb.org/3/movie/${movieId}/credits?language=en-US`
     )
       .then(data => data.cast.slice(0, 9))
-      .then(data => {
-        console.log(data);
-        setResults(data);
-      });
+      .then(data => setResults(data))
+      .catch(() => setError(true));
   }, [handleFetching, movieId]);
 
   return (
     <div>
+      {(error || !results) && (
+        <p>Error: Failed to get information from the server.</p>
+      )}
       {results.length > 0 ? (
         <ul>
           {results.map(result => (

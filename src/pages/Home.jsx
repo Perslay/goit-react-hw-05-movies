@@ -1,10 +1,10 @@
 import PropTypes from 'prop-types';
-import { useEffect } from 'react';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 export const Home = ({ handleFetching }) => {
   const [results, setResults] = useState([]);
+  const [error, setError] = useState(false);
 
   useEffect(() => {
     handleFetching(
@@ -12,21 +12,28 @@ export const Home = ({ handleFetching }) => {
     )
       .then(data => data.results)
       .then(data => setResults(data))
-      .catch(error => {
-        console.log(error);
-      });
+      .catch(() => setError(true));
   }, [handleFetching]);
 
   return (
     <main>
       <h1>Trending today</h1>
-      <ul>
-        {results.map(result => (
-          <li key={result.id}>
-            <Link to={`/movies/${result.id}`}>{result.title}</Link>
-          </li>
-        ))}
-      </ul>
+      {(error || !results) && (
+        <p>Error: Failed to get information from the server.</p>
+      )}
+      {results && (
+        <div>
+          {results.length > 0 && (
+            <ul>
+              {results.map(result => (
+                <li key={result.id}>
+                  <Link to={`/movies/${result.id}`}>{result.title}</Link>
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
+      )}
     </main>
   );
 };

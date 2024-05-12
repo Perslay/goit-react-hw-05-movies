@@ -14,23 +14,19 @@ export const Movies = ({ handleFetching }) => {
   const showResults = async (search, pageNum) => {
     try {
       const data = await handleFetching(
-        `https://api.themoviedb.org/3/seartch/movie?query=${search}&include_adult=false&language=en-US&page=${pageNum}`
+        `https://api.themoviedb.org/3/search/movie?query=${search}&include_adult=false&language=en-US&page=${pageNum}`
       );
       setSearchResults(data.results);
       setSubmitted(true);
       navigate(`/movies`, { replace: true });
-      if (!data.success) {
-        setError(true);
-      }
     } catch (error) {
       setError(true);
     }
   };
 
   const handleBack = () => {
-    if (pageNum === 1) {
-      return;
-    }
+    if (pageNum === 1) return;
+
     const updatedPageNum = pageNum - 1;
     setPageNum(updatedPageNum);
     showResults(search, updatedPageNum);
@@ -44,7 +40,6 @@ export const Movies = ({ handleFetching }) => {
 
   const handleSubmit = async event => {
     event.preventDefault();
-    // setError(false);
 
     const form = event.currentTarget;
     const search = form.elements.search.value;
@@ -62,7 +57,6 @@ export const Movies = ({ handleFetching }) => {
         <input type="text" name="search" />
         <button type="submit">Search</button>
       </form>
-      {error && <p>Error: Failed to get information from the server.</p>}
       {submitted &&
         searchResults &&
         (searchResults.length > 0 ? (
@@ -84,6 +78,9 @@ export const Movies = ({ handleFetching }) => {
         ) : (
           <p>There are no matching results.</p>
         ))}
+      {(error || !searchResults) && (
+        <p>Error: Failed to get information from the server.</p>
+      )}
     </main>
   );
 };
