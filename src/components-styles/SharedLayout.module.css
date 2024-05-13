@@ -5,7 +5,7 @@
 }
 
 .header {
-  background-color: #333;
+  background-color: var(--color-dark);
 }
 
 .firstHeading {
@@ -21,7 +21,7 @@
 }
 
 .footer {
-  background-color: #333;
+  background-color: var(--color-dark);
 }
 
 .footerContainer {

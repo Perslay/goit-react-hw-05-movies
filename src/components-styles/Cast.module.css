@@ -1,5 +1,5 @@
 .avatarBg {
-  background-color: lightgray;
+  background-color: var(--color-gray);
   display: flex;
   height: 300px;
   justify-content: center;

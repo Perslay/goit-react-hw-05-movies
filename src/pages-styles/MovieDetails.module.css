@@ -9,7 +9,7 @@
 } */
 
 .movieBg {
-  background-color: lightgray;
+  background-color: var(--color-gray);
   display: flex;
   height: 513px;
   justify-content: center;

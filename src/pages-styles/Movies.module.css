@@ -16,7 +16,7 @@
 }
 
 .input {
-  background-color: #eee;
+  background-color: var(--color-white);
   border: none;
   font-size: 16px;
   padding: 0.7rem;
@@ -28,7 +28,7 @@
 }
 
 .button {
-  background-color: #333;
+  background-color: var(--color-dark);
   border: none;
   border-radius: 100px;
   color: var(--color-orange);
@@ -42,7 +42,7 @@
 .button:focus,
 .button:hover {
   background-color: var(--color-orange);
-  color: #333;
+  color: var(--color-dark);
   outline: none;
 }
 
@@ -63,12 +63,12 @@
 }
 
 .link {
-  color: #eee;
+  color: var(--color-white);
   text-decoration: none;
 }
 
 .link:visited {
-  color: #aaa;
+  color: var(--color-gray);
 }
 
 .link:hover,
@@ -91,7 +91,7 @@
 }
 
 .error {
-  color: red;
+  color: var(--color-red);
 }
 
 @media screen and (min-width: 768px) {

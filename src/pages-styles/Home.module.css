@@ -11,7 +11,7 @@
 }
 
 .error {
-  color: #c44;
+  color: var(--color-red);
 }
 
 .list {
@@ -21,12 +21,12 @@
 }
 
 .link {
-  color: #eee;
+  color: var(--color-white);
   text-decoration: none;
 }
 
 .link:visited {
-  color: #aaa;
+  color: var(--color-gray);
 }
 
 .link:hover,
