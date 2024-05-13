@@ -1,11 +1,15 @@
-.header {
-  background-color: #333;
+.container {
   margin: 0 auto;
   max-width: 280px;
   padding: 2rem 0.5rem;
 }
 
+.header {
+  background-color: #333;
+}
+
 .firstHeading {
+  font-size: 36px;
   margin-bottom: 2rem;
   text-align: center;
   text-transform: uppercase;
@@ -13,23 +17,70 @@
 
 .navigation {
   display: flex;
-  gap: 1rem;
+  justify-content: space-around;
 }
 
 .footer {
   background-color: #333;
+}
+
+.footerContainer {
+  composes: container;
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  margin: 0 auto;
-  max-width: 280px;
-  padding: 2rem 0.5rem;
 }
 
 /* .logoLink {} */
 
 .logoImage {
   margin: 0 auto;
+  width: 100px;
 }
 
 /* .infoParagraph {} */
+
+@media screen and (min-width: 768px) {
+  .container {
+    font-size: 18px;
+    max-width: 650px;
+    padding: 2rem 1rem;
+  }
+
+  .firstHeading {
+    font-size: 40px;
+  }
+
+  .navigation {
+    justify-content: center;
+    gap: 2rem;
+  }
+
+  .footerContainer {
+    gap: 2rem;
+  }
+
+  .logoImage {
+    width: 130px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .container {
+    font-size: 20px;
+    max-width: 1000px;
+  }
+
+  .firstHeading {
+    font-size: 48px;
+  }
+
+  .navigation {
+    justify-content: center;
+    gap: 4rem;
+  }
+
+  .logoImage {
+    width: 150px;
+  }
+}
