@@ -1,5 +1,164 @@
+.container {
+  margin: 0 auto;
+  max-width: 280px;
+  padding: 2rem 0.5rem;
+}
+
 .main {
-    margin: 0 auto;
-    max-width: 280px;
-    padding: 2rem 0.5rem;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.input {
+  background-color: #eee;
+  border: none;
+  font-size: 16px;
+  padding: 0.7rem;
+  width: 100%;
+}
+
+.input:focus {
+  outline: 3px solid var(--color-orange);
+}
+
+.button {
+  background-color: #333;
+  border: none;
+  border-radius: 100px;
+  color: var(--color-orange);
+  font-size: 16px;
+  font-weight: bold;
+  padding: 0.7rem;
+}
+
+/* add transition */
+
+.button:focus,
+.button:hover {
+  background-color: var(--color-orange);
+  color: #333;
+  outline: none;
+}
+
+.buttonSubmit {
+  composes: button;
+  margin: 0 auto;
+  width: 50%;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  margin-bottom: 1.5rem;
+}
+
+.listItem {
+}
+
+.link {
+  color: #eee;
+  text-decoration: none;
+}
+
+.link:visited {
+  color: #aaa;
+}
+
+.link:hover,
+.link:focus {
+  color: var(--color-orange);
+}
+
+.pagination {
+  display: flex;
+  gap: 1rem;
+}
+
+.buttonPage {
+  composes: button;
+  width: 100%;
+}
+
+.info {
+  text-align: center;
+}
+
+.error {
+  color: red;
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    font-size: 18px;
+    max-width: 650px;
+    padding: 2rem 1rem;
   }
+
+  .form {
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .input {
+    font-size: 18px;
+    padding: 1rem;
+  }
+
+  .button {
+    font-size: 18px;
+    padding: 1rem;
+  }
+
+  .buttonSubmit {
+    width: 30%;
+  }
+
+  .list {
+    margin-bottom: 2rem;
+  }
+
+  .pagination {
+    gap: 2rem;
+    margin: 0 auto;
+    width: 60%;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .container {
+    font-size: 20px;
+    max-width: 1000px;
+  }
+
+  .form {
+    gap: 2rem;
+    margin-bottom: 3rem;
+  }
+
+  .input {
+    font-size: 20px;
+    padding: 1.3rem;
+  }
+
+  .button {
+    font-size: 20px;
+    padding: 1.3rem;
+  }
+
+  .list {
+    gap: 1rem;
+    margin-bottom: 3rem;
+  }
+
+  .pagination {
+    gap: 3rem;
+    width: 50%;
+  }
+}

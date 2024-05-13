@@ -1,5 +1,9 @@
 @import-normalize; /* bring in normalize.css styles */
 
+:root {
+  --color-orange: #d53;
+}
+
 *,
 *::before,
 *::after {

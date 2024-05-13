@@ -31,7 +31,7 @@
 
 .link:hover,
 .link:focus {
-  color: #d53;
+  color: var(--color-orange);
 }
 
 @media screen and (min-width: 768px) {

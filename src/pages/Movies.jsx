@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import css from '../pages-styles/Movies.module.css';
 
 export const Movies = ({ handleFetching }) => {
   const [search, setSearch] = useState('');
@@ -52,35 +53,53 @@ export const Movies = ({ handleFetching }) => {
   };
 
   return (
-    <main>
-      <form onSubmit={handleSubmit}>
-        <input type="text" name="search" />
-        <button type="submit">Search</button>
-      </form>
-      {submitted &&
-        searchResults &&
-        (searchResults.length > 0 ? (
-          <div>
-            <ul>
-              {searchResults.map(result => (
-                <li key={result.id}>
-                  <Link to={`/movies/${result.id}`}>{result.title}</Link>
-                </li>
-              ))}
-            </ul>
-            <button onClick={handleBack} type="button">
-              Back
-            </button>
-            <button onClick={handleNext} type="button">
-              Next
-            </button>
-          </div>
-        ) : (
-          <p>There are no matching results.</p>
-        ))}
-      {(error || !searchResults) && (
-        <p>Error: Failed to get information from the server.</p>
-      )}
+    <main className={css.main}>
+      <div className={css.container}>
+        <form className={css.form} onSubmit={handleSubmit}>
+          <input className={css.input} type="text" name="search" />
+          <button className={css.buttonSubmit} type="submit">
+            Search
+          </button>
+        </form>
+        {submitted &&
+          searchResults &&
+          (searchResults.length > 0 ? (
+            <div>
+              <ul className={css.list}>
+                {searchResults.map(result => (
+                  <li className={css.listItem} key={result.id}>
+                    <Link className={css.link} to={`/movies/${result.id}`}>
+                      {result.title}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+              <div className={css.pagination}>
+                <button
+                  className={css.buttonPage}
+                  onClick={handleBack}
+                  type="button"
+                >
+                  Back
+                </button>
+                <button
+                  className={css.buttonPage}
+                  onClick={handleNext}
+                  type="button"
+                >
+                  Next
+                </button>
+              </div>
+            </div>
+          ) : (
+            <p className={css.info}>There are no matching results.</p>
+          ))}
+        {(error || !searchResults) && (
+          <p className={css.error}>
+            Error: Failed to get information from the server.
+          </p>
+        )}
+      </div>
     </main>
   );
 };
