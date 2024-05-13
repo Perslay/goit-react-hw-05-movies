@@ -30,11 +30,18 @@
   background-color: var(--color-dark);
   border: none;
   border-radius: 100px;
-  color: var(--color-orange);
+  color: var(--color-white);
   font-size: 16px;
   font-weight: bold;
   margin-bottom: 1rem;
   padding: 0.7rem 2rem;
+  transition: background-color 250ms ease;
+}
+
+.button:hover,
+.button:focus {
+  background-color: var(--color-orange);
+  outline: none;
 }
 
 .error {
@@ -42,17 +49,22 @@
 }
 
 .secondHeading {
+  color: var(--color-orange);
   font-size: 30px;
   margin: 1.5rem 0;
   text-align: center;
 }
 
 .thirdHeading {
+  color: var(--color-orange);
+
   font-size: 26px;
   margin: 1rem 0;
 }
 
 .fourthHeading {
+  color: var(--color-orange);
+
   font-size: 20px;
   margin: 0.7rem 0;
 }
@@ -67,6 +79,7 @@
 .link {
   color: var(--color-white);
   text-decoration: none;
+  transition: color 250ms ease;
 }
 
 .link:visited {
@@ -76,6 +89,7 @@
 .link:hover,
 .link:focus {
   color: var(--color-orange);
+  outline: none;
 }
 
 @media screen and (min-width: 768px) {

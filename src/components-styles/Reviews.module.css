@@ -1,0 +1,37 @@
+.error {
+  color: var(--color-red);
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.nick {
+  color: var(--color-orange);
+  font-size: 20px;
+  margin-bottom: 0.5rem;
+}
+
+@media screen and (min-width: 768px) {
+  .list {
+    gap: 2.5rem;
+  }
+
+  .nick {
+    font-size: 22px;
+    margin-bottom: 0.8rem;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .list {
+    gap: 3rem;
+  }
+
+  .nick {
+    font-size: 24px;
+    margin-bottom: 1rem;
+  }
+}

@@ -67,7 +67,7 @@ export const Movies = ({ handleFetching }) => {
             <div>
               <ul className={css.list}>
                 {searchResults.map(result => (
-                  <li className={css.listItem} key={result.id}>
+                  <li key={result.id}>
                     <Link className={css.link} to={`/movies/${result.id}`}>
                       {result.title}
                     </Link>

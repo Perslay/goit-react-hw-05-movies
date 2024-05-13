@@ -20,6 +20,7 @@
   border: none;
   font-size: 16px;
   padding: 0.7rem;
+  transition: outline 250ms ease;
   width: 100%;
 }
 
@@ -31,18 +32,16 @@
   background-color: var(--color-dark);
   border: none;
   border-radius: 100px;
-  color: var(--color-orange);
+  color: var(--color-white);
   font-size: 16px;
   font-weight: bold;
   padding: 0.7rem;
+  transition: 250ms background-color ease;
 }
-
-/* add transition */
 
 .button:focus,
 .button:hover {
   background-color: var(--color-orange);
-  color: var(--color-dark);
   outline: none;
 }
 
@@ -59,12 +58,10 @@
   margin-bottom: 1.5rem;
 }
 
-.listItem {
-}
-
 .link {
   color: var(--color-white);
   text-decoration: none;
+  transition: color 250ms ease;
 }
 
 .link:visited {
@@ -74,6 +71,7 @@
 .link:hover,
 .link:focus {
   color: var(--color-orange);
+  outline: none;
 }
 
 .pagination {

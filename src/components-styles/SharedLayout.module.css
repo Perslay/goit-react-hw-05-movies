@@ -9,6 +9,7 @@
 }
 
 .firstHeading {
+  color: var(--color-orange);
   font-size: 36px;
   margin-bottom: 2rem;
   text-align: center;
@@ -31,14 +32,10 @@
   gap: 1rem;
 }
 
-/* .logoLink {} */
-
 .logoImage {
   margin: 0 auto;
   width: 100px;
 }
-
-/* .infoParagraph {} */
 
 @media screen and (min-width: 768px) {
   .container {

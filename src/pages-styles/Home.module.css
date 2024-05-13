@@ -5,6 +5,7 @@
 }
 
 .secondHeading {
+  color: var(--color-orange);
   font-size: 30px;
   margin-bottom: 1.5rem;
   text-align: center;
@@ -23,6 +24,7 @@
 .link {
   color: var(--color-white);
   text-decoration: none;
+  transition: color 250ms ease;
 }
 
 .link:visited {
@@ -32,6 +34,7 @@
 .link:hover,
 .link:focus {
   color: var(--color-orange);
+  outline: none;
 }
 
 @media screen and (min-width: 768px) {
