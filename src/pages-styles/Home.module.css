@@ -1,5 +1,64 @@
-.main {
+.container {
   margin: 0 auto;
   max-width: 280px;
   padding: 2rem 0.5rem;
+}
+
+.secondHeading {
+  font-size: 30px;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.error {
+  color: #c44;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.link {
+  color: #eee;
+  text-decoration: none;
+}
+
+.link:visited {
+  color: #aaa;
+}
+
+.link:hover,
+.link:focus {
+  color: #d53;
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    font-size: 18px;
+    max-width: 650px;
+    padding: 2rem 1rem;
+  }
+
+  .secondHeading {
+    font-size: 36px;
+    margin-bottom: 2rem;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .container {
+    font-size: 20px;
+    max-width: 1000px;
+  }
+
+  .secondHeading {
+    font-size: 42px;
+    margin-bottom: 3rem;
+  }
+
+  .list {
+    gap: 1rem;
+  }
 }

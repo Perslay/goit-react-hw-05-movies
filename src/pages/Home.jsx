@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import css from '../pages-styles/Home.module.css';
 
 export const Home = ({ handleFetching }) => {
   const [results, setResults] = useState([]);
@@ -17,23 +18,29 @@ export const Home = ({ handleFetching }) => {
 
   return (
     <main>
-      <h1>Trending today</h1>
-      {(error || !results) && (
-        <p>Error: Failed to get information from the server.</p>
-      )}
-      {results && (
-        <div>
-          {results.length > 0 && (
-            <ul>
-              {results.map(result => (
-                <li key={result.id}>
-                  <Link to={`/movies/${result.id}`}>{result.title}</Link>
-                </li>
-              ))}
-            </ul>
-          )}
-        </div>
-      )}
+      <div className={css.container}>
+        <h2 className={css.secondHeading}>Trending today</h2>
+        {(error || !results) && (
+          <p className={css.error}>
+            Error: Failed to get information from the server.
+          </p>
+        )}
+        {results && (
+          <div>
+            {results.length > 0 && (
+              <ul className={css.list}>
+                {results.map(result => (
+                  <li key={result.id}>
+                    <Link className={css.link} to={`/movies/${result.id}`}>
+                      {result.title}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </div>
+        )}
+      </div>
     </main>
   );
 };

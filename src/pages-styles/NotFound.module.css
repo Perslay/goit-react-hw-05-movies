@@ -1,7 +1,4 @@
 .container {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
   margin: 0 auto;
   max-width: 280px;
   padding: 2rem 0.5rem;
@@ -13,6 +10,7 @@
 
 .heading {
   font-size: 30px;
+  margin-bottom: 1.5rem;
 }
 
 @media screen and (min-width: 768px) {
