@@ -1,17 +1,179 @@
-.main {
+.container {
   margin: 0 auto;
   max-width: 280px;
   padding: 2rem 0.5rem;
 }
 
-/* .poster {
-  width: 200px;
-} */
+.smallContainer {
+  border-bottom: 1px solid gray;
+  padding-bottom: 1rem;
+}
+
+.poster {
+  margin: 0 auto;
+}
 
 .movieBg {
   background-color: var(--color-gray);
   display: flex;
-  height: 513px;
   justify-content: center;
-  width: 342px;
+  height: 200px;
+  margin: 0 auto;
+  width: 150px;
+  /* height: 513px;
+  width: 342px; */
+}
+
+.icon {
+  width: 80px;
+  /* width: 200px; */
+}
+
+.button {
+  background-color: var(--color-dark);
+  border: none;
+  border-radius: 100px;
+  color: var(--color-orange);
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  padding: 0.7rem 2rem;
+}
+
+.error {
+  color: var(--color-red);
+}
+
+.secondHeading {
+  font-size: 30px;
+  margin: 1.5rem 0;
+  text-align: center;
+}
+
+.thirdHeading {
+  font-size: 26px;
+  margin: 1rem 0;
+}
+
+.fourthHeading {
+  font-size: 20px;
+  margin: 0.7rem 0;
+}
+
+.paragraph {
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.link {
+  color: var(--color-white);
+  text-decoration: none;
+}
+
+.link:visited {
+  color: var(--color-gray);
+}
+
+.link:hover,
+.link:focus {
+  color: var(--color-orange);
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    font-size: 18px;
+    max-width: 650px;
+    padding: 2rem 1rem;
+  }
+
+  .smallContainer {
+    padding-bottom: 1.3rem;
+  }
+
+  .movieBg {
+    background-color: var(--color-gray);
+    display: flex;
+    justify-content: center;
+    height: 300px;
+    margin: 0 auto;
+    width: 225px;
+  }
+
+  .icon {
+    width: 120px;
+  }
+
+  .button {
+    font-size: 18px;
+    margin-bottom: 1.5rem;
+    padding: 1rem 3rem;
+  }
+
+  .secondHeading {
+    font-size: 36px;
+    margin: 2rem 0;
+  }
+
+  .thirdHeading {
+    font-size: 30px;
+    margin: 1.5rem 0;
+  }
+
+  .fourthHeading {
+    font-size: 26px;
+    margin: 1rem 0;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .container {
+    font-size: 20px;
+    max-width: 1000px;
+  }
+
+  .smallContainer {
+    padding-bottom: 1.3rem;
+  }
+
+  .movieBg {
+    background-color: var(--color-gray);
+    display: flex;
+    justify-content: center;
+    height: 400px;
+    margin: 0 auto;
+    width: 300px;
+  }
+
+  .icon {
+    width: 160px;
+  }
+
+  .button {
+    font-size: 20px;
+    margin-bottom: 2rem;
+    padding: 1.3rem 3rem;
+  }
+
+  .secondHeading {
+    font-size: 40px;
+    margin: 2rem 0;
+  }
+
+  .thirdHeading {
+    font-size: 30px;
+    margin: 1.5rem 0;
+  }
+
+  .fourthHeading {
+    font-size: 26px;
+    margin: 1rem 0;
+  }
+
+  .list {
+    gap: 1rem;
+  }
 }
