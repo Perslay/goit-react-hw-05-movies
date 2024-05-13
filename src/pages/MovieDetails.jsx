@@ -49,15 +49,13 @@ export const MovieDetails = ({ handleFetching }) => {
               </div>
             )}
             <h2 className={css.secondHeading}>{results.title}</h2>
-            <p className={css.paragraph}>User Score: {results.vote_average}</p>
+            <p>User Score: {results.vote_average}</p>
             <h3 className={css.thirdHeading}>Overview</h3>
-            <p className={css.paragraph}>{results.overview}</p>
+            <p>{results.overview}</p>
             {results.genres && (
               <div>
                 <h4 className={css.fourthHeading}>Genres</h4>
-                <p className={css.paragraph}>
-                  {results.genres.map(genre => genre.name).join(', ')}
-                </p>
+                <p>{results.genres.map(genre => genre.name).join(', ')}</p>
               </div>
             )}
           </div>

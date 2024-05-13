@@ -20,13 +20,10 @@
   height: 200px;
   margin: 0 auto;
   width: 150px;
-  /* height: 513px;
-  width: 342px; */
 }
 
 .icon {
   width: 80px;
-  /* width: 200px; */
 }
 
 .button {
@@ -60,13 +57,11 @@
   margin: 0.7rem 0;
 }
 
-.paragraph {
-}
-
 .list {
   display: flex;
   flex-direction: column;
   gap: 0.8rem;
+  margin-bottom: 2.5rem;
 }
 
 .link {
