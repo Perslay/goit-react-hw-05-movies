@@ -1,5 +1,6 @@
+import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
-import { NLink } from './App.styled';
+import { NLink } from './SharedLayout.styled';
 import css from '../components-styles/SharedLayout.module.css';
 import logo from '../img/logo.svg';
 
@@ -17,12 +18,12 @@ export const SharedLayout = () => {
           </nav>
         </div>
       </header>
-      <Outlet />
+      <Suspense fallback={<div>Loading...</div>}>
+        <Outlet />
+      </Suspense>
       <footer className={css.footer}>
         <div className={css.footerContainer}>
-          <a
-            href="https://developer.themoviedb.org/docs/getting-started"
-          >
+          <a href="https://developer.themoviedb.org/docs/getting-started">
             <img
               className={css.logoImage}
               src={logo}
@@ -31,8 +32,7 @@ export const SharedLayout = () => {
               title="The movie db - movie database"
             />
           </a>
-          <p
-          >
+          <p>
             This website uses TMDB and the TMDB APIs but is not endorsed,
             certified, or otherwise approved by TMDB.
           </p>
