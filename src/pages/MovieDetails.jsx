@@ -4,7 +4,7 @@ import { Link, Outlet, useParams, useNavigate } from 'react-router-dom';
 import css from '../pages-styles/MovieDetails.module.css';
 import movie from '../img/movie.svg';
 
-export const MovieDetails = ({ handleFetching }) => {
+const MovieDetails = ({ handleFetching }) => {
   const [results, setResults] = useState([]);
   const [error, setError] = useState(false);
 
@@ -82,3 +82,5 @@ export const MovieDetails = ({ handleFetching }) => {
 MovieDetails.propTypes = {
   handleFetching: PropTypes.func.isRequired,
 };
+
+export default MovieDetails;

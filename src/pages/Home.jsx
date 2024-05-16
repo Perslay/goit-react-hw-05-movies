@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import css from '../pages-styles/Home.module.css';
 
-export const Home = ({ handleFetching }) => {
+const Home = ({ handleFetching }) => {
   const [results, setResults] = useState([]);
   const [error, setError] = useState(false);
 
@@ -48,3 +48,5 @@ export const Home = ({ handleFetching }) => {
 Home.propTypes = {
   handleFetching: PropTypes.func.isRequired,
 };
+
+export default Home;

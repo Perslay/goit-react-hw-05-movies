@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import css from '../components-styles/Cast.module.css';
 import user from '../img/user.svg';
 
-export const Cast = ({ handleFetching }) => {
+const Cast = ({ handleFetching }) => {
   const [results, setResults] = useState([]);
   const [error, setError] = useState(false);
 
@@ -55,3 +55,5 @@ export const Cast = ({ handleFetching }) => {
 Cast.propTypes = {
   handleFetching: PropTypes.func.isRequired,
 };
+
+export default Cast;

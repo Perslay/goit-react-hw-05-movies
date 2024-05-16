@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import css from '../components-styles/Reviews.module.css';
 
-export const Reviews = ({ handleFetching }) => {
+const Reviews = ({ handleFetching }) => {
   const [results, setResults] = useState([]);
   const [error, setError] = useState(false);
 
@@ -44,3 +44,5 @@ export const Reviews = ({ handleFetching }) => {
 Reviews.propTypes = {
   handleFetching: PropTypes.func.isRequired,
 };
+
+export default Reviews;

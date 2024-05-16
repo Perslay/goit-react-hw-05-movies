@@ -1,6 +1,6 @@
 import css from '../pages-styles/NotFound.module.css';
 
-export const NotFound = () => {
+const NotFound = () => {
   return (
     <main className={css.main}>
       <div className={css.container}>
@@ -10,3 +10,5 @@ export const NotFound = () => {
     </main>
   );
 };
+
+export default NotFound;

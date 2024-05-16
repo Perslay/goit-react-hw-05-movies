@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import css from '../pages-styles/Movies.module.css';
 
-export const Movies = ({ handleFetching }) => {
+const Movies = ({ handleFetching }) => {
   const [search, setSearch] = useState('');
   const [searchResults, setSearchResults] = useState([]);
   const [submitted, setSubmitted] = useState(false);
@@ -107,3 +107,5 @@ export const Movies = ({ handleFetching }) => {
 Movies.propTypes = {
   handleFetching: PropTypes.func.isRequired,
 };
+
+export default Movies;
